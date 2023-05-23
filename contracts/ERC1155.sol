@@ -50,7 +50,7 @@ contract BNBEnviroment is ERC1155 {
         return _decimalsToken;
     }
 
-    function totalSupplyToken() public vire returns(uint256){
+    function totalSupplyToken() public view returns(uint256){
         return _totalSupplyTokens;
     }
 
@@ -58,8 +58,8 @@ contract BNBEnviroment is ERC1155 {
         return balanceOf(msg.sender, BNB_TOKEN);
     }
 
-    function transferToken(address _to, uint256 _amount ) public returns(bool){
-        return safeTransferFrom(msg.sender, _to, BNB_TOKEN, _amount, "");
+    function transferToken(address _to, uint256 _amount ) public {
+        safeTransferFrom(msg.sender, _to, BNB_TOKEN, _amount, "");
     }
 
     // Funciones ERC721
