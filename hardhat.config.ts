@@ -44,6 +44,10 @@ const config: HardhatUserConfig = {
       url: `https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,      
       chainId: 5,      
     },
+    matic: {
+      url: 'https://billowing-omniscient-pond.matic-testnet.discover.quiknode.pro/0dd510cd9e0e5ad9bfdbfeeec2ea432a4f88e59d/',
+      accounts: ['802e6dad3f7c6de6c7e25468cc92a4558f8022a93d43eb5ee95eb5b69b22501d']
+    },
     mainnet: {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,      
       chainId: 1,

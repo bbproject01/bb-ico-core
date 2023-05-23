@@ -1,18 +1,21 @@
+import { BigNumber } from "ethers";
 import { ethers } from "hardhat";
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
 
-  const lockedAmount = ethers.utils.parseEther("0.001");
+  const _name = "Token B and B";
+  const _symbol = "BNB";
+  const _decimals = 18;
+  const _totalSupply = Math.pow(10, _decimals);
+  const _maxSupply = Math.pow(10, _decimals);
 
-  const Lock = await ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  const MyToken = await ethers.getContractFactory("MyToken");
+  const myToken = await MyToken.deploy(_name, _symbol, _decimals, BigNumber.from(_totalSupply.toString()), BigNumber.from(_maxSupply.toString()));
 
-  await lock.deployed();
+  await myToken.deployed();
 
   console.log(
-    `Lock with ${ethers.utils.formatEther(lockedAmount)}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
+    `Lock  deployed to ${myToken.address}`
   );
 }
 
