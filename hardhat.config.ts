@@ -13,7 +13,7 @@ import { HardhatUserConfig } from 'hardhat/config'
 
 dotenv.config({ debug: false })
 
-const ACCOUNT_PRIVATE_KEY = process.env.GOERLI_PRIVATE_KEY ?? '';
+const ACCOUNT_PRIVATE_KEY = process.env.ACCOUNT_PRIVATE_KEY = '';
 
 task("typechain", "Generate TypeChain typings")
   .setAction(async (args, hre) => {
@@ -42,8 +42,9 @@ const config: HardhatUserConfig = {
       chainId: 3,      
     },
     goerli: {
-      url: `https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,      
-      chainId: 5,      
+      url: `https://eth-goerli.g.alchemy.com/v2/JsFWwgo0QK1JpMTDAq6tpKjHIEFEsD9Q`,      
+      chainId: 5,
+      accounts: [ACCOUNT_PRIVATE_KEY]      
     },
     matic: {
       url: 'https://billowing-omniscient-pond.matic-testnet.discover.quiknode.pro/0dd510cd9e0e5ad9bfdbfeeec2ea432a4f88e59d/',

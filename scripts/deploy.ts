@@ -15,7 +15,7 @@ async function main() {
   await myToken.deployed();
 
   console.log(
-    `Lock  deployed to ${myToken.address}`
+    `My token  deployed to ${myToken.address}`
   );
 }
 
